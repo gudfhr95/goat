@@ -21,11 +21,29 @@ env:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+        pnpm-version: [10]
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup
         uses: ./tooling/github/setup
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Copy env
         shell: bash
@@ -36,22 +54,52 @@ jobs:
 
   format:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+        pnpm-version: [10]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup
-        uses: ./tooling/github/setup
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Format
         run: pnpm format
 
   typecheck:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+        pnpm-version: [10]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup
-        uses: ./tooling/github/setup
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Typecheck
         run: pnpm typecheck
