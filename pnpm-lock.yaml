@@ -402,7 +402,7 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0
       drizzle-kit:
-        specifier: ^0.31.1
+        specifier: ^0.31.4
         version: 0.31.4
       eslint:
         specifier: 'catalog:'
@@ -539,8 +539,6 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
-
-  tooling/github: {}
 
   tooling/prettier:
     dependencies:
