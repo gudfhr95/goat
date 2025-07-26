@@ -19,7 +19,7 @@
     "@goat/db": "workspace:*",
     "@goat/ui": "workspace:*",
     "@goat/validators": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.13.6",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "catalog:",
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
