@@ -104,9 +104,3 @@ performance-profile: "complex"
 - **MCP Integration**: Context7, Sequential-Thinking, Supabase, Playwright
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `<feature-name>`, `[description]`, `--<flags>`
-
-## Additional Commands
-
-**`/spec:status <feature-name>`** - Show current spec status
-
-**`/spec:list`** - List all specs

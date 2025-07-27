@@ -1,18 +1,22 @@
 {
   "mcpServers": {
     "sequential-thinking": {
+      "type": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "context7": {
+      "type": "stdio",
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     },
     "task-master-ai": {
+      "type": "stdio",
       "command": "npx",
       "args": ["-y", "--package=task-master-ai", "task-master-ai"]
     },
     "supabase": {
+      "type": "stdio",
       "command": "npx",
       "args": [
         "-y",
@@ -25,6 +29,7 @@
       }
     },
     "playwright": {
+      "type": "stdio",
       "command": "npx",
       "args": ["-y", "@playwright/mcp@latest"]
     }

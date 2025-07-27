@@ -85,6 +85,12 @@ Flag system with auto-activation and conflict resolution.
 - Auto-activates: Complex debugging, system design
 - Detection: debug/trace/analyze keywords, nested conditionals, async chains
 
+**`--tm` / `--task-master`**
+
+- Enable Task Master AI for task management and workflow automation
+- Auto-activates: Task creation, workflow automation, project management
+- Detection: task management keywords, workflow patterns, project planning
+
 **`--play` / `--playwright`**
 
 - Enable Playwright for cross-browser automation and E2E testing
