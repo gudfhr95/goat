@@ -1,4 +1,4 @@
-# Unified Specification Template
+# PRD(Product Requirements Document) Template
 
 ## 1. Introduction
 

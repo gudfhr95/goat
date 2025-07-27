@@ -40,9 +40,15 @@ You are an AI assistant that specializes in spec-driven development. Your role i
 
 ## Phase Overview
 
-**Your Role**: Generate comprehensive PRD(Product Requirements Document) based on user input
+**Your Role**:
 
-This is Phase 1 of the spec workflow. Your goal is to create a complete requirements document that will guide the rest of the feature development.
+- Generate comprehensive PRD(Product Requirements Document) based on user input
+- Create technical architecture and design
+
+This is Phase 1 of the spec workflow. **Your goal** is:
+
+- Create a complete PRD that will guide the rest of the feature development.
+- Create a comprehensive technical design that translates requirements into a concrete implementation plan.
 
 ## Instructions
 
@@ -61,7 +67,9 @@ Follow these steps:
      - Check for .claude/steering/product.md for product vision alignment
      - Check for .claude/steering/tech.md for technical constraints
      - Check for .claude/steering/structure.md for organizational patterns
-   - **Analyze codebase**: Search for similar features and pattern
+   - **Analyze codebase**:
+     - Research existing codebase patterns and architecture
+     - Search for similar features and pattern
 
 3. **Parse Feature Description**
    - Take the feature name and optional description
@@ -69,26 +77,44 @@ Follow these steps:
    - Do not ask sequential questions - generate initial requirements
 
 4. **Analyze Existing Codebase** (BEFORE writing PRD)
-   - **Search for similar features**: Look for existing authentication, data handling, UI patterns, etc.
-   - **Identify reusable components**: Find utilities, services, hooks, or modules that can be leveraged
+   - **Search for similar features**: Identify data models, API patterns, component structures, UI patterns etc. that match your needs
+   - **Identify reusable components**: Find modules, components, services, middleware, utilities, hooks or helpers that can be leveraged
    - **Review architecture patterns**: Understand current project structure, naming conventions, and design patterns
+   - **Find integration points**: Locate where new feature will connect with existing systems such as auth, database, APIs
+   - **Document findings**: Note what can be reused or extended vs. what needs to be built from scratch
+   - **Document architectural decisions**: Note existing tech stack, state management, routing patterns to follow
    - **Cross-reference with steering documents**: Ensure findings align with tech.md patterns and structure.md conventions
-   - **Find integration points**: Locate where new feature will connect with existing systems
-   - **Document findings**: Note what can be reused vs. what needs to be built from scratch
 
 5. **Generate PRD(Product Requirements Document)**
    - Use the PRD template from `.claude/templates/prd-template.md`
-   - Use EARS format (Easy Approach to Requirements Syntax)
-     - Structure: Introduction, Requirements with User Stories and Acceptance Criteria
-   - Each requirement should have:
-     - User story: "As a [role], I want [feature], so that [benefit]"
-     - Numbered acceptance criteria: "WHEN [event] THEN [system] SHALL [response]"
-   - **Ensure alignment**: Verify requirements support the product vision and goals outlined in product.md
-   - **Reference steering documents**: Note how requirements align with product vision
-   - Consider edge cases, error scenarios, and technical constraints
-   - Include non-functional requirements (performance, security, etc.)
-   - Ensure requirements are testable and verifiable
-   - Reference existing codebase patterns where relevant
+   - **Requirements Considerations**:
+     - Use EARS format (Easy Approach to Requirements Syntax)
+       - Structure: Introduction, Requirements with User Stories and Acceptance Criteria
+     - Each requirement should have:
+       - User story: "As a [role], I want [feature], so that [benefit]"
+       - Numbered acceptance criteria: "WHEN [event] THEN [system] SHALL [response]"
+     - **Ensure alignment**: Verify requirements support the product vision and goals outlined in product.md
+     - **Reference steering documents**: Note how requirements align with product vision
+     - Consider edge cases, error scenarios, and technical constraints
+     - Include non-functional requirements (performance, security, etc.)
+     - Ensure requirements are testable and verifiable
+     - Reference existing codebase patterns where relevant
+   - **Technical Design Considerations**:
+     - Create comprehensive technical design including:
+       - System overview and architecture
+       - Component specifications and interfaces
+       - Data models and validation rules
+       - Error handling strategies
+       - Testing approach
+     - **Reuse Architecture**: Build on existing patterns rather than creating new ones
+     - **Extend Components**: Design to leverage and extend existing utilities, services, components
+     - Use Mermaid diagrams for visual representations
+     - Define clear interfaces that integrate with existing systems
+     - Specify data models that follow established patterns
+     - Plan error handling consistent with current approach
+     - Outline testing approach using existing test utilities
+     - **Follow tech.md standards**: Ensure design adheres to documented technical guidelines
+     - **Respect structure.md conventions**: Organize components according to project structure
 
 6. **Approval Process**
    - Present the complete requirements document
@@ -108,6 +134,7 @@ Follow these steps:
 ## Requirements Format
 
 - Use template (`.claude/templates/prd-template.md`)
+- **SKIP** sections that are not relevant to the current feature
 
 ## Error Handling
 
