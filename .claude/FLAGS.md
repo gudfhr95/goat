@@ -11,7 +11,6 @@ Flag system with auto-activation and conflict resolution.
 3. Performance flags activate under resource pressure
 4. Persona flags based on task patterns
 5. MCP server flags with context-sensitive activation
-6. Wave flags based on complexity thresholds
 
 ## Planning & Analysis Flags
 
@@ -25,21 +24,21 @@ Flag system with auto-activation and conflict resolution.
 - Multi-file analysis (~4K tokens)
 - Enables Sequential MCP for structured problem-solving
 - Auto-activates: Import chains >5 files, cross-module calls >10 references
-- Auto-enables `--seq` and suggests `--persona-analyzer`
+- Auto-enables `--seq`
 
 **`--think-hard`**
 
 - Deep architectural analysis (~10K tokens)
 - System-wide analysis with cross-module dependencies
 - Auto-activates: System refactoring, bottlenecks >3 modules, security vulnerabilities
-- Auto-enables `--seq --c7` and suggests `--persona-architect`
+- Auto-enables `--seq --c7`
 
 **`--ultrathink`**
 
 - Critical system redesign analysis (~32K tokens)
 - Maximum depth analysis for complex problems
 - Auto-activates: Legacy modernization, critical vulnerabilities, performance degradation >50%
-- Auto-enables `--seq --c7 --all-mcp` for comprehensive analysis
+- Auto-enables `--all-mcp` for comprehensive analysis
 
 ## Compression & Efficiency Flags
 
@@ -83,13 +82,19 @@ Flag system with auto-activation and conflict resolution.
 **`--seq` / `--sequential`**
 
 - Enable Sequential for complex multi-step analysis
-- Auto-activates: Complex debugging, system design, --think flags
+- Auto-activates: Complex debugging, system design
 - Detection: debug/trace/analyze keywords, nested conditionals, async chains
 
 **`--play` / `--playwright`**
 
 - Enable Playwright for cross-browser automation and E2E testing
 - Detection: test/e2e keywords, performance monitoring, visual testing, cross-browser requirements
+
+**`--sb` / `--supabase`**
+
+- Enable Supabase for backend system architecture design, API design, database schema and code implementation
+- Auto-activates: System design, database schema, API design, backend architecture
+- Detection: architecture/system design/backend/API/database keywords, backend related
 
 **`--all-mcp`**
 
@@ -118,33 +123,6 @@ Flag system with auto-activation and conflict resolution.
 - Control max concurrent sub-agents and tasks (default: 7, range: 1-15)
 - Dynamic allocation based on resources and complexity
 - Prevents resource exhaustion in complex scenarios
-
-## Wave Orchestration Flags
-
-**`--wave-mode [auto|force|off]`**
-
-- Control wave orchestration activation
-- **auto**: Auto-activates based on complexity >0.8 AND file_count >20 AND operation_types >2
-- **force**: Override auto-detection and force wave mode for borderline cases
-- **off**: Disable wave mode, use Sub-Agent delegation instead
-- 30-50% better results through compound intelligence and progressive enhancement
-
-**`--wave-strategy [progressive|systematic|adaptive|enterprise]`**
-
-- Select wave orchestration strategy
-- **progressive**: Iterative enhancement for incremental improvements
-- **systematic**: Comprehensive methodical analysis for complex problems
-- **adaptive**: Dynamic configuration based on varying complexity
-- **enterprise**: Large-scale orchestration for >100 files with >0.7 complexity
-- Auto-selects based on project characteristics and operation type
-
-**`--wave-delegation [files|folders|tasks]`**
-
-- Control how Wave system delegates work to Sub-Agent
-- **files**: Sub-Agent delegates individual file analysis across waves
-- **folders**: Sub-Agent delegates directory-level analysis across waves
-- **tasks**: Sub-Agent delegates by task type (security, performance, quality, architecture)
-- Integrates with `--delegate` flag for coordinated multi-phase execution
 
 ## Scope & Focus Flags
 
@@ -201,6 +179,7 @@ Flag system with auto-activation and conflict resolution.
 
 - **Context7**: External library imports, framework questions, documentation requests
 - **Sequential**: Complex debugging, system design, any --think flags
+- **Supabase**: Backend architecture, API design, database schema, system design
 - **Playwright**: Testing workflows, performance monitoring, QA persona
 
 ### Flag Precedence
@@ -211,13 +190,10 @@ Flag system with auto-activation and conflict resolution.
 4. --no-mcp overrides all individual MCP flags
 5. Scope: system > project > module > file
 6. Last specified persona takes precedence
-7. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
-8. Sub-Agent delegation: explicit --delegate > auto-detection
-9. Loop mode: explicit --loop > auto-detection based on refinement keywords
-10. --uc auto-activation overrides verbose flags
+7. Sub-Agent delegation: explicit --delegate > auto-detection
+8. Loop mode: explicit --loop > auto-detection based on refinement keywords
+9. --uc auto-activation overrides verbose flags
 
 ### Context-Based Auto-Activation
 
-**Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2
-**Sub-Agent Auto-Activation**: >7 directories OR >50 files OR complexity >0.8
 **Loop Auto-Activation**: polish, refine, enhance, improve keywords detected

@@ -18,9 +18,6 @@ For more detailed principles and rules, refer to @.claude/PRINCIPLES.md and @.cl
 
 - @.claude/COMMANDS.md
 - @.claude/FLAGS.md
-- @.claude/MCP.md
-- @.claude/ORCHESTRATOR.md
-- @.claude/MODES.md
 
 ## Workflow Sequence
 
