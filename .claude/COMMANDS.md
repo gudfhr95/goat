@@ -42,6 +42,22 @@ complex: "Resource-intensive with comprehensive analysis"
 
 ```yaml
 ---
+command: "/spec:steering"
+category: "Planning"
+purpose: "Create a steering document"
+performance-profile: "standard"
+---
+```
+
+- **Auto Sub Agent**: system-architect, technical-writer
+- **MCP Integration**: Context7, Sequential-Thinking
+- **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
+- **Arguments**: `--<flags>`, `[description]`
+
+**`/spec:create $ARGUMENTS`**
+
+```yaml
+---
 command: "/spec:create"
 category: "Development & Planning"
 purpose: "Create a new feature spec"
@@ -50,7 +66,7 @@ performance-profile: "standard"
 ```
 
 - **Auto Sub Agent**: system-architect, technical-writer
-- **MCP Integration**: Context7, Sequential-Thinking
+- **MCP Integration**: Context7, Sequential-Thinking, Supabase, Playwright
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `<feature-name>`, `--<flags>`, `[description]`
 
@@ -66,26 +82,7 @@ performance-profile: "standard"
 ```
 
 - **Auto Sub Agent**: system-architect, technical-writer
-- **MCP Integration**: Context7, Sequential-Thinking
-- **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
-- **Arguments**: `<feature-name>`, `--<flags>`, `[description]`
-
-## Development Commands
-
-**`/spec:design $ARGUMENTS`**
-
-```yaml
----
-command: "/spec:design"
-category: "Development & Planning"
-purpose: "Generate design document"
-performance-profile: "standard"
----
-```
-
-- **Auto Sub Agent**: frontend-engineer, mobile-engineer, backend-engineer, devops-engineer, system-architect,
-  technical-writer
-- **MCP Integration**: Context7, Sequential-Thinking, Supabase
+- **MCP Integration**: Context7, Sequential-Thinking, Supabase, Playwright
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `<feature-name>`, `--<flags>`, `[description]`
 
@@ -105,6 +102,8 @@ performance-profile: "standard"
 - **MCP Integration**: Context7, Sequential-Thinking, Supabase
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `<feature-name>`, `--<flags>`, `[description]`
+
+## Development Commands
 
 **`/spec:execute $ARGUMENTS`**
 
