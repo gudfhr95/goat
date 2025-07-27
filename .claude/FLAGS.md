@@ -148,7 +148,6 @@ Flag system with auto-activation and conflict resolution.
 
 - Enable iterative improvement mode for commands
 - Auto-activates: Quality improvement requests, refinement operations, polish tasks
-- Compatible commands: /sc:improve, /refine, /enhance, /fix, /sc:cleanup, /sc:analyze
 - Default: 3 iterations with automatic validation
 
 **`--iterations [n]`**

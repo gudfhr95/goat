@@ -4,14 +4,10 @@
       "Bash(mkdir:*)",
       "Bash(find:*)",
       "mcp__sequential-thinking",
+      "mcp__task-master-ai",
       "mcp__supabase"
     ],
     "deny": []
   },
-  "enabledMcpjsonServers": [
-    "sequential-thinking",
-    "context7",
-    "supabase",
-    "playwright"
-  ]
+  "enableAllProjectMcpServers": true
 }
