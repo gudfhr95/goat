@@ -67,14 +67,14 @@ You are helping create a new feature specification. Follow these steps:
    - **Find integration points**: Locate where new feature will connect with existing systems
    - **Document findings**: Note what can be reused vs. what needs to be built from scratch
 
-5. **Generate Initial Requirements**
-   - Use the requirements template from `.claude/templates/prd-template.md`
+5. **Generate Initial PRD(Product Requirements Document)**
+   - Use the PRD template from `.claude/templates/prd-template.md`
    - Create user stories in "As a [role], I want [feature], so that [benefit]" format
    - Write acceptance criteria in EARS format (WHEN/IF/THEN statements)
    - Consider edge cases and technical constraints
 
 6. **Request User Approval**
-   - Present the PRD(Product Requirements Document)
+   - Present the PRD
    - **Include codebase analysis summary**: Briefly note what existing code can be leveraged
    - Ask: "Do the PRD look good? If so, we can move on to the tasks."
    - Wait for explicit approval before proceeding
