@@ -38,7 +38,7 @@ complex: "Resource-intensive with comprehensive analysis"
 
 ## Plan Commands
 
-**`/spec:create $ARGUMENTS`**
+**`/spec:steering $ARGUMENTS`**
 
 ```yaml
 ---
@@ -53,22 +53,6 @@ performance-profile: "standard"
 - **MCP Integration**: Context7, Sequential-Thinking
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `--<flags>`, `[description]`
-
-**`/spec:create $ARGUMENTS`**
-
-```yaml
----
-command: "/spec:create"
-category: "Development & Planning"
-purpose: "Create a new feature spec"
-performance-profile: "standard"
----
-```
-
-- **Auto Sub Agent**: system-architect, technical-writer
-- **MCP Integration**: Context7, Sequential-Thinking, Supabase, Playwright
-- **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
-- **Arguments**: `<feature-name>`, `--<flags>`, `[description]`
 
 **`/spec:requirements $ARGUMENTS`**
 
