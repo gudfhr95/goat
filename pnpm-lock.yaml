@@ -6,12 +6,46 @@ settings:
 
 catalogs:
   default:
+    '@tanstack/react-query':
+      specifier: ^5.80.7
+      version: 5.83.0
+    '@trpc/client':
+      specifier: ^11.4.0
+      version: 11.4.3
+    '@trpc/server':
+      specifier: ^11.4.0
+      version: 11.4.3
+    '@trpc/tanstack-react-query':
+      specifier: ^11.4.0
+      version: 11.4.3
+    eslint:
+      specifier: ^9.28.0
+      version: 9.32.0
     prettier:
       specifier: ^3.6.2
       version: 3.6.2
+    tailwindcss:
+      specifier: ^3.4.15
+      version: 3.4.17
     typescript:
       specifier: ^5.8.3
       version: 5.8.3
+    zod:
+      specifier: ^3.25.49
+      version: 3.25.76
+  react19:
+    '@types/react':
+      specifier: ^19.1.6
+      version: 19.1.8
+    '@types/react-dom':
+      specifier: ^19.1.5
+      version: 19.1.6
+    react:
+      specifier: 19.0.0
+      version: 19.0.0
+    react-dom:
+      specifier: 19.0.0
+      version: 19.0.0
 
 importers:
 
@@ -118,13 +152,13 @@ importers:
         version: 2.2.2
     devDependencies:
       '@babel/core':
-        specifier: ^7.27.4
+        specifier: ^7.28.0
         version: 7.28.0
       '@babel/preset-env':
-        specifier: ^7.27.2
+        specifier: ^7.28.0
         version: 7.28.0(@babel/core@7.28.0)
       '@babel/runtime':
-        specifier: ^7.27.4
+        specifier: ^7.28.2
         version: 7.28.2
       '@goat/api':
         specifier: workspace:*
