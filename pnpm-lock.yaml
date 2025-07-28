@@ -540,7 +540,7 @@ importers:
   tooling/prettier:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
-        specifier: ^4.4.2
+        specifier: ^4.5.1
         version: 4.5.1(prettier@3.6.2)
       prettier:
         specifier: 'catalog:'
