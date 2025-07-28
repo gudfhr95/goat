@@ -4,8 +4,6 @@ import { z } from "zod/v4";
 export function authEnv() {
   return createEnv({
     server: {
-      // Temporarily keep AUTH_SECRET optional until migration is complete
-      AUTH_SECRET: z.string().min(1).optional(),
       NODE_ENV: z.enum(["development", "production"]).optional(),
     },
     client: {
