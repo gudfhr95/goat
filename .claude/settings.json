@@ -8,7 +8,7 @@
       "mcp__task-master-ai",
       "mcp__supabase"
     ],
-    "deny": []
+    "deny": ["mcp__task-master-ai__initialize_project"]
   },
   "enableAllProjectMcpServers": true
 }
