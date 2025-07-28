@@ -3,6 +3,13 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(cat:*)",
+      "Bash(git:*)",
+      "Bash(pnpm:*)",
       "mcp__sequential-thinking",
       "mcp__context7",
       "mcp__task-master-ai",
