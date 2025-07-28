@@ -19,16 +19,19 @@ This is Phase 2 of the spec workflow. Your goal is to create a detailed task bre
 You are working on the tasks phase of the spec workflow.
 
 1. **Prerequisites**
-   - Ensure prd.md exists and is approved
-   - Load prd.md for context
+   - Ensure `.claude/specs/<feature-name>/prd.md` exists and is approved
+   - Load `.claude/specs/<feature-name>/prd.md` for context
    - **Load steering documents**:
      - Check for .claude/steering/structure.md for project conventions
      - Check for .claude/steering/tech.md for technical patterns
    - Understand the complete feature scope
+   - **CRITICAL**:
+     - Do not initialize task-master project
+     - Add task-master tag named `<feature-name>` if it doesn't already exist
+     - Use tag `<feature-name>` to track task-master tasks related to this feature
 
 2. **Process**
-   1. Use task-master to create tasks based on prd.md
-      - **CRITICAL**: Do not initialize new task master project
+   1. Use task-master to create tasks based on PRD:
       - Break down the PRD into atomic, executable tasks
       - Break down and expand complex tasks into smaller, manageable subtasks
       - Analyze complexity of each task
