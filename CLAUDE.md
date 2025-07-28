@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+`@.claude/PRINCIPLES.md`
+`@.claude/RULES.md`
 `@.claude/COMMANDS.md`
 `@.claude/FLAGS.md`
 
