@@ -172,7 +172,7 @@ Flag system with auto-activation and conflict resolution.
 **`--introspect` / `--introspection`**
 
 - Deep transparency mode exposing thinking process
-- Auto-activates: SuperClaude framework work, complex debugging
+- Auto-activates: Complex debugging
 - Transparency markers: 🤔 Thinking, 🎯 Decision, ⚡ Action, 📊 Check, 💡 Learning
 - Conversational reflection with shared uncertainties
 
