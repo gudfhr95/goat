@@ -128,7 +128,8 @@ The API uses tRPC for type-safe communication:
 Required environment variables (see `.env.example`):
 
 - `POSTGRES_URL`: Supabase database connection string
-- `AUTH_SECRET`: Authentication secret key
+- `NEXT_PUBLIC_SUPABASE_URL`: Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Supabase anonymous key
 
 ## Important Considerations
 
