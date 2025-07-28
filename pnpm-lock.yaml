@@ -152,13 +152,13 @@ importers:
         version: 2.2.2
     devDependencies:
       '@babel/core':
-        specifier: ^7.27.4
+        specifier: ^7.28.0
         version: 7.28.0
       '@babel/preset-env':
-        specifier: ^7.27.2
+        specifier: ^7.28.0
         version: 7.28.0(@babel/core@7.28.0)
       '@babel/runtime':
-        specifier: ^7.27.4
+        specifier: ^7.28.2
         version: 7.28.2
       '@goat/api':
         specifier: workspace:*
