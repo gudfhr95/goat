@@ -19,7 +19,7 @@ catalogs:
       specifier: ^11.4.0
       version: 11.4.3
     eslint:
-      specifier: ^9.28.0
+      specifier: ^9.32.0
       version: 9.32.0
     prettier:
       specifier: ^3.6.2
@@ -214,6 +214,12 @@ importers:
       '@goat/validators':
         specifier: workspace:*
         version: link:../../packages/validators
+      '@supabase/ssr':
+        specifier: ^0.6.1
+        version: 0.6.1(@supabase/supabase-js@2.52.1(bufferutil@4.0.9))
+      '@supabase/supabase-js':
+        specifier: ^2.52.1
+        version: 2.52.1(bufferutil@4.0.9)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.8
         version: 0.13.8(typescript@5.8.3)(zod@3.25.76)
@@ -330,12 +336,6 @@ importers:
       '@goat/db':
         specifier: workspace:*
         version: link:../db
-      '@supabase/ssr':
-        specifier: ^0.6.1
-        version: 0.6.1(@supabase/supabase-js@2.52.1(bufferutil@4.0.9))
-      '@supabase/supabase-js':
-        specifier: ^2.52.1
-        version: 2.52.1(bufferutil@4.0.9)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.8
         version: 0.13.8(typescript@5.8.3)(zod@3.25.76)
