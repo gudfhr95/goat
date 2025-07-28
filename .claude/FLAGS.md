@@ -184,6 +184,7 @@ Flag system with auto-activation and conflict resolution.
 
 - **Context7**: External library imports, framework questions, documentation requests
 - **Sequential**: Complex debugging, system design, any --think flags
+- **Task Master**: Task management, workflow automation, project planning
 - **Supabase**: Backend architecture, API design, database schema, system design
 - **Playwright**: Testing workflows, performance monitoring, QA persona
 
