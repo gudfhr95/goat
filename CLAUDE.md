@@ -107,7 +107,6 @@ The API uses tRPC for type-safe communication:
 
 - Uses better-auth with OAuth proxy plugin for handling authentication in preview deployments
 - Session management through secure cookies
-- Discord OAuth is pre-configured
 - Auth proxy handles OAuth flow for Expo app compatibility
 
 ### Database Layer
@@ -129,8 +128,8 @@ The API uses tRPC for type-safe communication:
 Required environment variables (see `.env.example`):
 
 - `POSTGRES_URL`: Supabase database connection string
-- `AUTH_SECRET`: Authentication secret key
-- `AUTH_DISCORD_ID` & `AUTH_DISCORD_SECRET`: OAuth credentials
+- `NEXT_PUBLIC_SUPABASE_URL`: Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Supabase anonymous key
 
 ## Important Considerations
 
