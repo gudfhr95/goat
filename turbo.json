@@ -9,6 +9,10 @@
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/vitestcache/**"]
+    },
     "dev": {
       "dependsOn": ["^dev"],
       "cache": false,
@@ -27,9 +31,6 @@
       "outputs": [".cache/tsbuildinfo.json"]
     },
     "clean": {
-      "cache": false
-    },
-    "//#clean": {
       "cache": false
     },
     "push": {

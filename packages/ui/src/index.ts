@@ -4,3 +4,6 @@ import { twMerge } from "tailwind-merge";
 const cn = (...inputs: Parameters<typeof cx>) => twMerge(cx(inputs));
 
 export { cn };
+
+// Export auth components
+export * from "./auth";

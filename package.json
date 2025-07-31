@@ -21,6 +21,8 @@
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
     "postinstall": "pnpm lint:ws",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add",
     "android": "expo run:android",
@@ -28,12 +30,16 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@goat/eslint-config": "workspace:*",
     "@goat/prettier-config": "workspace:*",
+    "@goat/tsconfig": "workspace:*",
+    "@goat/vitest-config": "workspace:*",
     "@turbo/gen": "^2.5.4",
     "husky": "^9.1.7",
     "prettier": "catalog:",
     "turbo": "^2.5.4",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@goat/prettier-config"
 }
