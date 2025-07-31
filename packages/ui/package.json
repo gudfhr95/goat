@@ -19,7 +19,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "test": "vitest run",
-    "test:run": "vitest run",
+    "test:watch": "vitest watch",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
   },
