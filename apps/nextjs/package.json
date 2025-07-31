@@ -10,6 +10,8 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "start": "pnpm with-env next start",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --"
   },
@@ -37,15 +39,19 @@
     "@goat/prettier-config": "workspace:*",
     "@goat/tailwind-config": "workspace:*",
     "@goat/tsconfig": "workspace:*",
+    "@goat/vitest-config": "workspace:*",
+    "@testing-library/react": "^16.1.0",
     "@types/node": "^22.15.29",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
+    "@vitejs/plugin-react": "^4.3.4",
     "dotenv-cli": "^8.0.0",
     "eslint": "catalog:",
     "jiti": "^2.5.1",
     "prettier": "catalog:",
     "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@goat/prettier-config"
 }
