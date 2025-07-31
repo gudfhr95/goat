@@ -7,3 +7,6 @@ export { cn };
 
 // Export auth components
 export * from "./auth";
+
+// Export icons
+export * from "./icons";

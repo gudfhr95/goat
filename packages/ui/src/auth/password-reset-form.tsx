@@ -16,6 +16,7 @@ import {
   FormMessage,
   useForm,
 } from "../form";
+import { SpinnerIcon } from "../icons";
 import { Input } from "../input";
 
 const passwordResetSchema = z.object({
@@ -66,7 +67,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
   if (isSuccess) {
     return (
       <div className={cn("space-y-6", className)}>
-        <div className="space-y-2 text-center">
+        <div className="flex flex-col space-y-2 text-center">
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
             <svg
               className="h-6 w-6 text-primary"
@@ -122,7 +123,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
 
   return (
     <div className={cn("space-y-6", className)}>
-      <div className="space-y-2 text-center">
+      <div className="flex flex-col space-y-2 text-center">
         <h1 className="text-2xl font-semibold tracking-tight">
           Forgot your password?
         </h1>
@@ -161,6 +162,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
           )}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
+            {isLoading && <SpinnerIcon className="mr-2 h-4 w-4 animate-spin" />}
             {isLoading ? "Sending..." : "Send reset email"}
           </Button>
         </form>

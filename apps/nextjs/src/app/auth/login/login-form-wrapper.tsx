@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { LoginForm } from "@goat/ui";
@@ -59,12 +60,17 @@ export function LoginFormWrapper() {
   };
 
   return (
-    <LoginForm
-      onSubmit={handleSubmit}
-      onGoogleSignIn={handleGoogleSignIn}
-      onFacebookSignIn={handleFacebookSignIn}
-      onForgotPassword={handleForgotPassword}
-      onSignUpClick={handleSignUpClick}
-    />
+    <>
+      <Link href="/" className="absolute right-4 top-4 md:right-8 md:top-8">
+        ← Back
+      </Link>
+      <LoginForm
+        onSubmit={handleSubmit}
+        onGoogleSignIn={handleGoogleSignIn}
+        onFacebookSignIn={handleFacebookSignIn}
+        onForgotPassword={handleForgotPassword}
+        onSignUpClick={handleSignUpClick}
+      />
+    </>
   );
 }
