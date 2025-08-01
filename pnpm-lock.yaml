@@ -46,7 +46,7 @@ catalogs:
       specifier: ^5.8.3
       version: 5.8.3
     vitest:
-      specifier: ^2.1.8
+      specifier: ^2.1.9
       version: 2.1.9
     zod:
       specifier: ^3.25.76
