@@ -46,12 +46,7 @@
     "@types/react-dom": "catalog:react19",
     "@vitejs/plugin-react": "catalog:",
     "dotenv-cli": "^8.0.0",
-    "eslint": "catalog:",
-    "jiti": "^2.5.1",
-    "prettier": "catalog:",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "jiti": "^2.5.1"
   },
   "prettier": "@goat/prettier-config"
 }

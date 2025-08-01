@@ -67,9 +67,9 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
     return (
       <div className={cn("space-y-6", className)}>
         <div className="space-y-2 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+          <div className="bg-primary/10 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
             <svg
-              className="h-6 w-6 text-primary"
+              className="text-primary h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -85,13 +85,13 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
           <h1 className="text-2xl font-semibold tracking-tight">
             Check your email
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             We've sent a password reset link to your email address.
           </p>
         </div>
 
         <div className="space-y-4">
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-center text-sm">
             Didn't receive the email? Check your spam folder or{" "}
             <button
               type="button"
@@ -99,7 +99,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
                 setIsSuccess(false);
                 form.reset();
               }}
-              className="font-medium text-primary hover:underline"
+              className="text-primary font-medium hover:underline"
             >
               try again
             </button>
@@ -126,7 +126,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
         <h1 className="text-2xl font-semibold tracking-tight">
           Forgot your password?
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           No worries, we'll send you reset instructions.
         </p>
       </div>
@@ -153,8 +153,8 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
           />
 
           {form.formState.errors.root && (
-            <div className="rounded-md bg-destructive/10 p-3">
-              <p className="text-sm text-destructive">
+            <div className="bg-destructive/10 rounded-md p-3">
+              <p className="text-destructive text-sm">
                 {form.formState.errors.root.message}
               </p>
             </div>
@@ -171,7 +171,7 @@ export const PasswordResetForm: FC<PasswordResetFormProps> = ({
           <button
             type="button"
             onClick={onBackToSignIn}
-            className="text-sm font-medium text-primary hover:underline"
+            className="text-primary text-sm font-medium hover:underline"
           >
             ← Back to sign in
           </button>

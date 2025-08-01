@@ -56,7 +56,7 @@
     "@types/react": "catalog:react19",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "tailwindcss": "catalog:",
+    "tailwindcss": "catalog:tailwindcss",
     "typescript": "catalog:"
   },
   "prettier": "@goat/prettier-config"

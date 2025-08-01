@@ -104,7 +104,7 @@ export const SignupForm: FC<SignupFormProps> = ({
         <h1 className="text-2xl font-semibold tracking-tight">
           Create an account
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Enter your email below to create your account
         </p>
       </div>
@@ -169,8 +169,8 @@ export const SignupForm: FC<SignupFormProps> = ({
           />
 
           {form.formState.errors.root && (
-            <div className="rounded-md bg-destructive/10 p-3">
-              <p className="text-sm text-destructive">
+            <div className="bg-destructive/10 rounded-md p-3">
+              <p className="text-destructive text-sm">
                 {form.formState.errors.root.message}
               </p>
             </div>
@@ -191,7 +191,7 @@ export const SignupForm: FC<SignupFormProps> = ({
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
+          <span className="bg-background text-muted-foreground px-2">
             Or continue with
           </span>
         </div>
@@ -262,30 +262,30 @@ export const SignupForm: FC<SignupFormProps> = ({
       </div>
 
       {onSignInClick && (
-        <p className="text-center text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-center text-sm">
           Already have an account?{" "}
           <button
             type="button"
             onClick={onSignInClick}
-            className="font-medium text-primary hover:underline"
+            className="text-primary font-medium hover:underline"
           >
             Sign in
           </button>
         </p>
       )}
 
-      <p className="px-8 text-center text-xs text-muted-foreground">
+      <p className="text-muted-foreground px-8 text-center text-xs">
         By clicking continue, you agree to our{" "}
         <a
           href="/terms"
-          className="underline underline-offset-4 hover:text-primary"
+          className="hover:text-primary underline underline-offset-4"
         >
           Terms of Service
         </a>{" "}
         and{" "}
         <a
           href="/privacy"
-          className="underline underline-offset-4 hover:text-primary"
+          className="hover:text-primary underline underline-offset-4"
         >
           Privacy Policy
         </a>

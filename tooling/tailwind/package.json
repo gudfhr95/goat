@@ -15,9 +15,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "catalog:tailwindcss",
     "postcss": "^8.5.6",
-    "tailwindcss": "catalog:",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "catalog:tailwindcss",
+    "tailwindcss-animate": "catalog:tailwindcss"
   },
   "devDependencies": {
     "@goat/eslint-config": "workspace:*",
