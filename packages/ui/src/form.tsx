@@ -16,9 +16,8 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-import { cn } from "@goat/ui";
-
-import { Label } from "./label";
+import { Label } from "@goat/ui/components/label";
+import { cn } from "@goat/ui/lib/utils";
 
 export { FormProvider as Form, useFieldArray } from "react-hook-form";
 
@@ -141,7 +140,7 @@ export function FormDescription({
   return (
     <p
       id={formDescriptionId}
-      className={cn("text-[0.8rem] text-muted-foreground", className)}
+      className={cn("text-muted-foreground text-[0.8rem]", className)}
       {...props}
     />
   );
@@ -162,7 +161,7 @@ export function FormMessage({
   return (
     <p
       id={formMessageId}
-      className={cn("text-[0.8rem] font-medium text-destructive", className)}
+      className={cn("text-destructive text-[0.8rem] font-medium", className)}
       {...props}
     >
       {body}

@@ -5,16 +5,16 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/styles/globals.css",
+    "css": "../../packages/ui/src/styles/globals.css",
     "baseColor": "neutral",
     "cssVariables": true
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@goat/ui/components",
+    "components": "~/components",
+    "hooks": "~/hooks",
+    "lib": "~/lib",
     "utils": "@goat/ui/lib/utils",
-    "hooks": "@goat/ui/hooks",
-    "lib": "@goat/ui/lib",
     "ui": "@goat/ui/components"
   }
 }

@@ -18,7 +18,7 @@
     "@tailwindcss/postcss": "catalog:tailwindcss",
     "postcss": "^8.5.6",
     "tailwindcss": "catalog:tailwindcss",
-    "tailwindcss-animate": "catalog:tailwindcss"
+    "tw-animate-css": "catalog:tailwindcss"
   },
   "devDependencies": {
     "@goat/eslint-config": "workspace:*",

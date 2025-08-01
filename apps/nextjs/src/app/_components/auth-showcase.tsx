@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { Button } from "@goat/ui/button";
+import { Button } from "@goat/ui/components/button";
 
 import { auth, getSession } from "~/auth/server";
 

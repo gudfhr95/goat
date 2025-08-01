@@ -5,10 +5,14 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@goat/ui/*": ["../../packages/ui/src/*"]
     },
-    "plugins": [{ "name": "next" }],
-    "module": "esnext"
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [".", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
