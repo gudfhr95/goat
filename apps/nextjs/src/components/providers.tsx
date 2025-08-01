@@ -1,18 +1,26 @@
 "use client";
 
 import * as React from "react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+import { ThemeProvider, ThemeToggle } from "@goat/ui/theme";
+import { Toaster } from "@goat/ui/toast";
+
+import { TRPCReactProvider } from "~/trpc/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider
+    <ThemeProvider
       attribute="class"
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
       enableColorScheme
     >
-      {children}
-    </NextThemesProvider>
+      <TRPCReactProvider>{children}</TRPCReactProvider>
+      <div className="absolute right-4 bottom-4">
+        <ThemeToggle />
+      </div>
+      <Toaster />
+    </ThemeProvider>
   );
 }
