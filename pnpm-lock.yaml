@@ -19,13 +19,13 @@ catalogs:
       specifier: ^14.6.1
       version: 14.6.1
     '@trpc/client':
-      specifier: ^11.4.0
+      specifier: ^11.4.3
       version: 11.4.3
     '@trpc/server':
-      specifier: ^11.4.0
+      specifier: ^11.4.3
       version: 11.4.3
     '@trpc/tanstack-react-query':
-      specifier: ^11.4.0
+      specifier: ^11.4.3
       version: 11.4.3
     '@vitejs/plugin-react':
       specifier: ^4.3.4
