@@ -3,8 +3,15 @@ import { NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
 import { env } from "~/env";
+import {
+  getAuthRedirectUrl,
+  getPostLoginRedirectUrl,
+  isProtectedRoute,
+} from "./route-protection";
 
 export async function updateSession(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
   // Create a response object that we can modify
   const response = NextResponse.next({
     request: {
@@ -33,11 +40,15 @@ export async function updateSession(request: NextRequest) {
 
   // Refresh the auth token by calling getUser()
   // This will validate the token with Supabase Auth server and refresh if needed
+  let user = null;
+
   try {
     const {
-      data: { user: _user },
+      data: { user: sessionUser },
       error,
     } = await supabase.auth.getUser();
+
+    user = sessionUser;
 
     if (error) {
       // Log the error but don't throw - let the request continue
@@ -50,6 +61,21 @@ export async function updateSession(request: NextRequest) {
   } catch (error) {
     // Handle any unexpected errors during token refresh
     console.error("Unexpected error in auth middleware:", error);
+  }
+
+  // Check route protection requirements
+  const isProtected = isProtectedRoute(pathname);
+
+  // If the route is protected and user is not authenticated, redirect to login
+  if (isProtected && !user) {
+    const redirectUrl = getAuthRedirectUrl(request);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  // If user is authenticated and trying to access auth pages, redirect to dashboard
+  if (user && pathname.startsWith("/auth/") && pathname !== "/auth/callback") {
+    const postLoginUrl = getPostLoginRedirectUrl(request);
+    return NextResponse.redirect(postLoginUrl);
   }
 
   return response;

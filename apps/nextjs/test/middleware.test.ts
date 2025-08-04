@@ -48,7 +48,7 @@ describe("middleware config", () => {
     // Verify the matcher pattern
     const pattern = config.matcher[0];
     expect(pattern).toBe(
-      "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+      "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|pdf|zip|woff|woff2|ttf|eot)$).*)",
     );
   });
 
@@ -59,7 +59,7 @@ describe("middleware config", () => {
     // So we verify that these paths would be processed by the middleware
     const appRoutes = ["/dashboard", "/profile", "/api/auth", "/auth/login"];
     const excludePattern =
-      /_next\/static|_next\/image|favicon\.ico|.*\.(svg|png|jpg|jpeg|gif|webp)$/;
+      /_next\/static|_next\/image|favicon\.ico|robots\.txt|sitemap\.xml|manifest\.json|.*\.(svg|png|jpg|jpeg|gif|webp|ico|pdf|zip|woff|woff2|ttf|eot)$/;
 
     appRoutes.forEach((route) => {
       // These routes don't match the exclusion pattern, so they should be handled
@@ -76,15 +76,22 @@ describe("middleware config", () => {
       "/_next/static/chunk.js",
       "/_next/image/test.jpg",
       "/favicon.ico",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/manifest.json",
       "/logo.svg",
       "/image.png",
       "/photo.jpg",
       "/picture.jpeg",
       "/animation.gif",
       "/image.webp",
+      "/document.pdf",
+      "/archive.zip",
+      "/font.woff",
+      "/font.woff2",
     ];
     const excludePattern =
-      /_next\/static|_next\/image|favicon\.ico|.*\.(svg|png|jpg|jpeg|gif|webp)$/;
+      /_next\/static|_next\/image|favicon\.ico|robots\.txt|sitemap\.xml|manifest\.json|.*\.(svg|png|jpg|jpeg|gif|webp|ico|pdf|zip|woff|woff2|ttf|eot)$/;
 
     staticPaths.forEach((path) => {
       // The pattern uses negative lookahead, so these should NOT be matched

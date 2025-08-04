@@ -23,6 +23,12 @@ vi.mock("next/server", () => ({
       },
       ...init,
     })),
+    redirect: vi.fn((url: string) => ({
+      cookies: {
+        set: vi.fn(),
+      },
+      url,
+    })),
   },
 }));
 
@@ -47,6 +53,10 @@ describe("updateSession", () => {
 
     // Setup mock request
     mockRequest = {
+      url: "http://localhost:3000/dashboard",
+      nextUrl: {
+        pathname: "/dashboard",
+      },
       cookies: {
         getAll: vi
           .fn()
@@ -223,5 +233,99 @@ describe("updateSession", () => {
     expect(response).toBeDefined();
     expect(response).toHaveProperty("cookies");
     expect(response.cookies).toHaveProperty("set");
+  });
+
+  describe("route protection", () => {
+    it("should redirect to login when accessing protected route without auth", async () => {
+      mockSupabaseClient.auth.getUser.mockResolvedValue({
+        data: { user: null },
+        error: null,
+      });
+
+      // Mock NextResponse.redirect
+      const mockRedirect = vi.fn().mockReturnValue({
+        cookies: { set: vi.fn() },
+      });
+      vi.mocked(NextResponse).redirect = mockRedirect;
+
+      // Set request to a protected route
+      mockRequest.nextUrl.pathname = "/dashboard";
+
+      await updateSession(mockRequest);
+
+      expect(mockRedirect).toHaveBeenCalledWith(
+        expect.stringContaining("/auth/login"),
+      );
+    });
+
+    it("should allow access to protected route with valid auth", async () => {
+      mockSupabaseClient.auth.getUser.mockResolvedValue({
+        data: { user: { id: "123", email: "test@example.com" } },
+        error: null,
+      });
+
+      // Set request to a protected route
+      mockRequest.nextUrl.pathname = "/dashboard";
+
+      const response = await updateSession(mockRequest);
+
+      // Should return NextResponse.next, not redirect
+      expect(response).toBeDefined();
+      expect(vi.mocked(NextResponse.next)).toHaveBeenCalled();
+    });
+
+    it("should allow access to public routes without auth", async () => {
+      mockSupabaseClient.auth.getUser.mockResolvedValue({
+        data: { user: null },
+        error: null,
+      });
+
+      // Set request to a public route
+      mockRequest.nextUrl.pathname = "/";
+
+      const response = await updateSession(mockRequest);
+
+      // Should return NextResponse.next, not redirect
+      expect(response).toBeDefined();
+      expect(vi.mocked(NextResponse.next)).toHaveBeenCalled();
+    });
+
+    it("should redirect authenticated users from auth pages to dashboard", async () => {
+      mockSupabaseClient.auth.getUser.mockResolvedValue({
+        data: { user: { id: "123", email: "test@example.com" } },
+        error: null,
+      });
+
+      // Mock NextResponse.redirect
+      const mockRedirect = vi.fn().mockReturnValue({
+        cookies: { set: vi.fn() },
+      });
+      vi.mocked(NextResponse).redirect = mockRedirect;
+
+      // Set request to auth login page
+      mockRequest.nextUrl.pathname = "/auth/login";
+
+      await updateSession(mockRequest);
+
+      expect(mockRedirect).toHaveBeenCalledWith(
+        expect.stringContaining("/dashboard"),
+      );
+    });
+
+    it("should not redirect from auth callback even when authenticated", async () => {
+      mockSupabaseClient.auth.getUser.mockResolvedValue({
+        data: { user: { id: "123", email: "test@example.com" } },
+        error: null,
+      });
+
+      // Set request to auth callback
+      mockRequest.nextUrl.pathname = "/auth/callback";
+
+      const response = await updateSession(mockRequest);
+
+      // Should return NextResponse.next, not redirect
+      expect(response).toBeDefined();
+      expect(vi.mocked(NextResponse.next)).toHaveBeenCalled();
+    });
   });
 });
