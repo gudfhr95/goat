@@ -414,11 +414,11 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0
       drizzle-orm:
-        specifier: ^0.44.1
-        version: 0.44.3(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0)
+        specifier: ^0.44.4
+        version: 0.44.4(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0)
       drizzle-zod:
         specifier: ^0.8.2
-        version: 0.8.2(drizzle-orm@0.44.3(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0))(zod@3.25.76)
+        version: 0.8.2(drizzle-orm@0.44.4(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0))(zod@3.25.76)
       zod:
         specifier: 'catalog:'
         version: 3.25.76
@@ -4495,8 +4495,8 @@ packages:
     resolution: {integrity: sha512-tCPWVZWZqWVx2XUsVpJRnH9Mx0ClVOf5YUHerZ5so1OKSlqww4zy1R5ksEdGRcO3tM3zj0PYN6V48TbQCL1RfA==}
     hasBin: true
 
-  drizzle-orm@0.44.3:
-    resolution: {integrity: sha512-8nIiYQxOpgUicEL04YFojJmvC4DNO4KoyXsEIqN44+g6gNBr6hmVpWk3uyAt4CaTiRGDwoU+alfqNNeonLAFOQ==}
+  drizzle-orm@0.44.4:
+    resolution: {integrity: sha512-ZyzKFpTC/Ut3fIqc2c0dPZ6nhchQXriTsqTNs4ayRgl6sZcFlMs9QZKPSHXK4bdOf41GHGWf+FrpcDDYwW+W6Q==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -12116,7 +12116,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.3(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0):
+  drizzle-orm@0.44.4(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0):
     optionalDependencies:
       '@prisma/client': 5.22.0(prisma@5.22.0)
       '@types/better-sqlite3': 7.6.13
@@ -12126,9 +12126,9 @@ snapshots:
       kysely: 0.28.3
       prisma: 5.22.0
 
-  drizzle-zod@0.8.2(drizzle-orm@0.44.3(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0))(zod@3.25.76):
+  drizzle-zod@0.8.2(drizzle-orm@0.44.4(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0))(zod@3.25.76):
     dependencies:
-      drizzle-orm: 0.44.3(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0)
+      drizzle-orm: 0.44.4(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(better-sqlite3@11.10.0)(kysely@0.28.3)(prisma@5.22.0)
       zod: 3.25.76
 
   dunder-proto@1.0.1:
