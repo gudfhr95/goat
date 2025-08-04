@@ -28,7 +28,7 @@ catalogs:
       specifier: ^11.4.3
       version: 11.4.3
     '@vitejs/plugin-react':
-      specifier: ^4.3.4
+      specifier: ^4.7.0
       version: 4.7.0
     eslint:
       specifier: ^9.32.0
