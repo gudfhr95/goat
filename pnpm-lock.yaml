@@ -555,7 +555,7 @@ importers:
         specifier: ^2.5.4
         version: 2.5.5(eslint@9.32.0(jiti@2.5.1))(turbo@2.5.5)
       typescript-eslint:
-        specifier: ^8.33.1
+        specifier: ^8.38.0
         version: 8.38.0(eslint@9.32.0(jiti@2.5.1))(typescript@5.8.3)
     devDependencies:
       '@goat/prettier-config':
