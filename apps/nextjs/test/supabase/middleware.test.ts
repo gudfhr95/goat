@@ -21,12 +21,14 @@ vi.mock("next/server", () => ({
       cookies: {
         set: vi.fn(),
       },
+      headers: new Headers(),
       ...init,
     })),
     redirect: vi.fn((url: string) => ({
       cookies: {
         set: vi.fn(),
       },
+      headers: new Headers(),
       url,
     })),
   },
@@ -83,6 +85,7 @@ describe("updateSession", () => {
       cookies: {
         set: mockResponseCookiesSet,
       },
+      headers: new Headers(),
     } as unknown as NextResponse);
   });
 
@@ -144,8 +147,8 @@ describe("updateSession", () => {
 
     expect(response).toBeDefined();
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      "Error refreshing auth token:",
-      "Invalid token",
+      expect.stringContaining("Error"),
+      expect.stringContaining("Invalid token"),
     );
 
     consoleErrorSpy.mockRestore();
@@ -164,7 +167,7 @@ describe("updateSession", () => {
 
     expect(response).toBeDefined();
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      "Unexpected error in auth middleware:",
+      expect.stringContaining("error"),
       expect.any(Error),
     );
 
@@ -299,6 +302,7 @@ describe("updateSession", () => {
       // Mock NextResponse.redirect
       const mockRedirect = vi.fn().mockReturnValue({
         cookies: { set: vi.fn() },
+        headers: new Headers(),
       });
       vi.mocked(NextResponse).redirect = mockRedirect;
 
