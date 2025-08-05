@@ -6,11 +6,11 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
+import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { z, ZodError } from "zod/v4";
 
-import { createServerClient } from "@goat/auth";
 import { db } from "@goat/db/client";
 
 /**
@@ -26,19 +26,19 @@ import { db } from "@goat/db/client";
  * @see https://trpc.io/docs/server/context
  */
 
-export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const cookieHeader = opts.headers.get("cookie");
-  const supabase = createServerClient(cookieHeader);
+interface CreateContextOptions {
+  headers: Headers;
+  session: Session | null;
+  supabase: SupabaseClient;
+}
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-  const user = session?.user ?? null;
+export const createTRPCContext = (opts: CreateContextOptions) => {
+  const source = opts.headers.get("x-trpc-source") ?? "unknown";
+  console.log(">>> tRPC Request from", source);
 
   return {
-    supabase,
-    session,
-    user,
+    supabase: opts.supabase,
+    session: opts.session,
     db,
   };
 };
@@ -118,13 +118,13 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
   .use(({ ctx, next }) => {
-    if (!ctx.session?.user) {
+    if (!ctx.session) {
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
     return next({
       ctx: {
         // infers the `session` as non-nullable
-        session: { ...ctx.session, user: ctx.session.user },
+        session: ctx.session,
       },
     });
   });

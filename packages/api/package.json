@@ -19,7 +19,6 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@goat/auth": "workspace:*",
     "@goat/db": "workspace:*",
     "@goat/validators": "workspace:*",
     "@trpc/server": "catalog:",
@@ -30,6 +29,7 @@
     "@goat/eslint-config": "workspace:*",
     "@goat/prettier-config": "workspace:*",
     "@goat/tsconfig": "workspace:*",
+    "@supabase/supabase-js": "^2.52.1",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

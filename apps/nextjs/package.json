@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@goat/api": "workspace:*",
-    "@goat/auth": "workspace:*",
     "@goat/db": "workspace:*",
     "@goat/ui": "workspace:*",
     "@goat/validators": "workspace:*",
