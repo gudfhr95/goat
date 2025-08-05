@@ -1,38 +1,34 @@
-import type { BetterAuthOptions } from "better-auth";
-import { expo } from "@better-auth/expo";
-import { betterAuth } from "better-auth";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { oAuthProxy } from "better-auth/plugins";
+import {
+  createServerClient as createSupabaseServerClient,
+  parseCookieHeader,
+} from "@supabase/ssr";
 
-import { db } from "@goat/db/client";
+import { authEnv } from "../env";
 
-export function initAuth(options: {
-  baseUrl: string;
-  productionUrl: string;
-  secret: string | undefined;
-}) {
-  const config = {
-    database: drizzleAdapter(db, {
-      provider: "pg",
-    }),
-    baseURL: options.baseUrl,
-    secret: options.secret,
-    plugins: [
-      oAuthProxy({
-        /**
-         * Auto-inference blocked by https://github.com/better-auth/better-auth/pull/2891
-         */
-        currentURL: options.baseUrl,
-        productionURL: options.productionUrl,
-      }),
-      expo(),
-    ],
-    socialProviders: {},
-    trustedOrigins: ["expo://"],
-  } satisfies BetterAuthOptions;
+export function createServerClient(cookieHeader: string | null) {
+  const env = authEnv();
+  const parsedCookies = parseCookieHeader(cookieHeader ?? "");
 
-  return betterAuth(config);
+  return createSupabaseServerClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name: string) {
+          const cookie = parsedCookies.find((c) => c.name === name);
+          return cookie?.value;
+        },
+        set() {
+          // In API routes and tRPC, we can't set cookies directly
+          // This would need to be handled in middleware or response headers
+        },
+        remove() {
+          // In API routes and tRPC, we can't remove cookies directly
+          // This would need to be handled in middleware or response headers
+        },
+      },
+    },
+  );
 }
 
-export type Auth = ReturnType<typeof initAuth>;
-export type Session = Auth["$Infer"]["Session"];
+export { type User, type Session } from "@supabase/supabase-js";
