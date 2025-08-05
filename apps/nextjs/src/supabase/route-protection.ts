@@ -197,18 +197,6 @@ export function getPostLoginRedirectUrl(request: NextRequest): string {
 /**
  * Middleware matcher configuration for Next.js
  * This will be used in the middleware config
- *
- * Pattern explanation:
- * - Uses negative lookahead (?!) to exclude specific patterns
- * - Excludes Next.js internal routes (_next/static, _next/image)
- * - Excludes common static files (favicon, robots.txt, etc)
- * - Excludes files with static extensions (images, fonts, etc)
- * - Matches everything else for auth checking
- *
- * Performance optimization:
- * - Static files bypass middleware entirely
- * - Reduces unnecessary auth checks
- * - Improves overall application performance
  */
 export const middlewareMatcher = [
   /*
