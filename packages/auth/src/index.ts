@@ -19,12 +19,10 @@ export function createServerClient(cookieHeader: string | null) {
           return cookie?.value;
         },
         set() {
-          // In API routes and tRPC, we can't set cookies directly
-          // This would need to be handled in middleware or response headers
+          return undefined;
         },
         remove() {
-          // In API routes and tRPC, we can't remove cookies directly
-          // This would need to be handled in middleware or response headers
+          return undefined;
         },
       },
     },
