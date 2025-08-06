@@ -31,14 +31,18 @@ export const createTRPCContext = async (opts: {
   supabase: SupabaseClient;
 }) => {
   const supabase = opts.supabase;
+
   const token = opts.headers.get("authorization");
 
   const user = token
     ? await supabase.auth.getUser(token)
     : await supabase.auth.getUser();
 
+  const session = await supabase.auth.getSession();
+
   return {
     user: user.data.user,
+    session,
     db,
   };
 };
