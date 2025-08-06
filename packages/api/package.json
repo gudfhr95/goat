@@ -19,9 +19,9 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@goat/auth": "workspace:*",
     "@goat/db": "workspace:*",
     "@goat/validators": "workspace:*",
+    "@supabase/supabase-js": "catalog:supabase",
     "@trpc/server": "catalog:",
     "superjson": "2.2.2",
     "zod": "catalog:"
