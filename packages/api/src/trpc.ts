@@ -30,14 +30,15 @@ export const createTRPCContext = async (opts: {
   headers: Headers;
   supabase: SupabaseClient;
 }) => {
-  const {
-    data: { session },
-  } = await opts.supabase.auth.getSession();
+  const supabase = opts.supabase;
+  const token = opts.headers.get("authorization");
+
+  const user = token
+    ? await supabase.auth.getUser(token)
+    : await supabase.auth.getUser();
 
   return {
-    supabase: opts.supabase,
-    session,
-    user: session?.user ?? null,
+    user: user.data.user,
     db,
   };
 };
@@ -110,22 +111,22 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
  * Protected (authenticated) procedure
  *
  * If you want a query or mutation to ONLY be accessible to logged in users, use this. It verifies
- * the session is valid and guarantees `ctx.session.user` is not null.
+ * the session is valid and guarantees `ctx.user` is not null.
  *
  * @see https://trpc.io/docs/procedures
  */
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.user?.id) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  return next({
+    ctx: {
+      // infers the `user` as non-nullable
+      user: ctx.user,
+    },
+  });
+});
+
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
-  .use(({ ctx, next }) => {
-    if (!ctx.session || !ctx.user) {
-      throw new TRPCError({ code: "UNAUTHORIZED" });
-    }
-    return next({
-      ctx: {
-        ...ctx,
-        // infers the `session` and `user` as non-nullable
-        session: ctx.session,
-        user: ctx.user,
-      },
-    });
-  });
+  .use(enforceUserIsAuthed);
