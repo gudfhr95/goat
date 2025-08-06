@@ -38,11 +38,11 @@ export const createTRPCContext = async (opts: {
     ? await supabase.auth.getUser(token)
     : await supabase.auth.getUser();
 
-  const session = await supabase.auth.getSession();
+  const sessionResponse = await supabase.auth.getSession();
 
   return {
     user: user.data.user,
-    session,
+    session: sessionResponse.data.session,
     db,
   };
 };
@@ -122,10 +122,39 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
   .use(({ ctx, next }) => {
-    if (!ctx.user) {
-      throw new TRPCError({ code: "UNAUTHORIZED" });
+    // Check if session exists and is valid
+    if (!ctx.session) {
+      throw new TRPCError({
+        code: "UNAUTHORIZED",
+        message: "No valid Supabase session found. Please sign in.",
+      });
     }
+
+    // Check if the session has expired
+    // Supabase sessions have expires_at as a Unix timestamp in seconds
+    if (
+      ctx.session.expires_at &&
+      new Date(ctx.session.expires_at * 1000) < new Date()
+    ) {
+      throw new TRPCError({
+        code: "UNAUTHORIZED",
+        message: "Session has expired. Please sign in again.",
+      });
+    }
+
+    // Ensure user is available in the context
+    if (!ctx.user) {
+      throw new TRPCError({
+        code: "UNAUTHORIZED",
+        message: "User not found in session. Please sign in again.",
+      });
+    }
+
     return next({
-      ctx,
+      ctx: {
+        ...ctx,
+        user: ctx.user, // Ensure user is available in protected procedures
+        session: ctx.session, // Session is already available in context
+      },
     });
   });
