@@ -6,13 +6,11 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
-import type { Session, User } from "@supabase/supabase-js";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { z, ZodError } from "zod/v4";
 
-// TODO: Import createServerClient once it's implemented in @goat/auth
-// import { createServerClient } from "@goat/auth";
 import { db } from "@goat/db/client";
 
 /**
@@ -28,18 +26,18 @@ import { db } from "@goat/db/client";
  * @see https://trpc.io/docs/server/context
  */
 
-export const createTRPCContext = (_opts: { headers: Headers }) => {
-  // TODO: Implement once createServerClient is available in @goat/auth
-  // const supabase = createServerClient();
-  // const { data: { session }, error } = await supabase.auth.getSession();
-
-  // Temporary: Return null session and user until Supabase client is implemented
-  const session: Session | null = null;
-  const user: User | null = null;
+export const createTRPCContext = async (opts: {
+  headers: Headers;
+  supabase: SupabaseClient;
+}) => {
+  const {
+    data: { session },
+  } = await opts.supabase.auth.getSession();
 
   return {
+    supabase: opts.supabase,
     session,
-    user,
+    user: session?.user ?? null,
     db,
   };
 };
@@ -119,13 +117,15 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
   .use(({ ctx, next }) => {
-    // TODO: Remove eslint-disable once Supabase client is properly implemented
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!ctx.session || !ctx.user) {
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
-    // After the check above, TypeScript knows session and user are non-null
     return next({
-      ctx,
+      ctx: {
+        ...ctx,
+        // infers the `session` and `user` as non-nullable
+        session: ctx.session,
+        user: ctx.user,
+      },
     });
   });
