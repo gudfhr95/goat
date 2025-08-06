@@ -327,15 +327,15 @@ importers:
 
   packages/api:
     dependencies:
-      '@goat/auth':
-        specifier: workspace:*
-        version: link:../auth
       '@goat/db':
         specifier: workspace:*
         version: link:../db
       '@goat/validators':
         specifier: workspace:*
         version: link:../validators
+      '@supabase/supabase-js':
+        specifier: ^2.53.0
+        version: 2.53.0(bufferutil@4.0.9)
       '@trpc/server':
         specifier: 'catalog:'
         version: 11.4.4(typescript@5.9.2)

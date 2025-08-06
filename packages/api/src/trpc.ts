@@ -38,11 +38,11 @@ export const createTRPCContext = async (opts: {
     ? await supabase.auth.getUser(token)
     : await supabase.auth.getUser();
 
-  const session = await supabase.auth.getSession();
+  const sessionResponse = await supabase.auth.getSession();
 
   return {
     user: user.data.user,
-    session,
+    session: sessionResponse.data.session,
     db,
   };
 };
@@ -122,10 +122,14 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
   .use(({ ctx, next }) => {
-    if (!ctx.user) {
+    if (!ctx.session || !ctx.user) {
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
     return next({
-      ctx,
+      ctx: {
+        ...ctx,
+        user: ctx.user,
+        session: ctx.session,
+      },
     });
   });
