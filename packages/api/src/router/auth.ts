@@ -3,6 +3,9 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = {
+  getUser: publicProcedure.query(({ ctx }) => {
+    return ctx.user;
+  }),
   getSession: publicProcedure.query(({ ctx }) => {
     return ctx.session;
   }),
