@@ -16,19 +16,19 @@ import { Input } from "@goat/ui/components/input";
 import { Label } from "@goat/ui/components/label";
 import { cn } from "@goat/ui/lib/utils";
 
-import { signIn, signInWithGoogle } from "~/app/auth/actions";
+import { signInWithGoogle, signUp } from "~/app/auth/actions";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? "Signing in..." : "Login"}
+      {pending ? "Creating account..." : "Sign up"}
     </Button>
   );
 }
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -36,19 +36,20 @@ export function LoginForm({
     email?: string[];
     password?: string[];
   }>({});
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>Create an account</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your email below to create your account
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form
             action={async (formData) => {
-              const result = await signIn({
+              const result = await signUp({
                 email: formData.get("email") as string,
                 password: formData.get("password") as string,
               });
@@ -73,16 +74,14 @@ export function LoginForm({
                 )}
               </div>
               <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <Link
-                    href="/auth/forgot-password"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </Link>
-                </div>
-                <Input id="password" name="password" type="password" required />
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="At least 8 characters"
+                  required
+                />
                 {errors.password && (
                   <p className="text-sm text-red-500">{errors.password[0]}</p>
                 )}
@@ -92,12 +91,9 @@ export function LoginForm({
               </div>
             </div>
             <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/auth/signup"
-                className="underline underline-offset-4"
-              >
-                Sign up
+              Already have an account?{" "}
+              <Link href="/auth/login" className="underline underline-offset-4">
+                Sign in
               </Link>
             </div>
           </form>
@@ -121,7 +117,7 @@ export function LoginForm({
           className="w-full"
           formAction={signInWithGoogle}
         >
-          Login with Google
+          Sign up with Google
         </Button>
       </form>
     </div>

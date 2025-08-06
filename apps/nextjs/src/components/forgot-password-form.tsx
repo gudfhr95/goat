@@ -16,45 +16,51 @@ import { Input } from "@goat/ui/components/input";
 import { Label } from "@goat/ui/components/label";
 import { cn } from "@goat/ui/lib/utils";
 
-import { signIn, signInWithGoogle } from "~/app/auth/actions";
+import { resetPassword } from "~/app/auth/actions";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? "Signing in..." : "Login"}
+      {pending ? "Sending reset link..." : "Send reset link"}
     </Button>
   );
 }
 
-export function LoginForm({
+export function ForgotPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const [errors, setErrors] = useState<{
     email?: string[];
-    password?: string[];
   }>({});
+  const [success, setSuccess] = useState<string | null>(null);
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>Forgot your password?</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your email address and we&apos;ll send you a password reset
+            link
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form
             action={async (formData) => {
-              const result = await signIn({
+              setErrors({});
+              setSuccess(null);
+
+              const result = await resetPassword({
                 email: formData.get("email") as string,
-                password: formData.get("password") as string,
               });
 
-              if ("error" in result) {
+              if ("error" in result && result.error) {
                 setErrors(result.error);
+              } else if ("success" in result && result.success) {
+                setSuccess(result.success);
               }
             }}
           >
@@ -71,59 +77,21 @@ export function LoginForm({
                 {errors.email && (
                   <p className="text-sm text-red-500">{errors.email[0]}</p>
                 )}
-              </div>
-              <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <Link
-                    href="/auth/forgot-password"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </Link>
-                </div>
-                <Input id="password" name="password" type="password" required />
-                {errors.password && (
-                  <p className="text-sm text-red-500">{errors.password[0]}</p>
-                )}
+                {success && <p className="text-sm text-green-600">{success}</p>}
               </div>
               <div className="flex flex-col gap-3">
                 <SubmitButton />
               </div>
             </div>
             <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/auth/signup"
-                className="underline underline-offset-4"
-              >
-                Sign up
+              Remember your password?{" "}
+              <Link href="/auth/login" className="underline underline-offset-4">
+                Back to login
               </Link>
             </div>
           </form>
         </CardContent>
       </Card>
-
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background text-muted-foreground px-2">
-            Or continue with
-          </span>
-        </div>
-      </div>
-
-      <form>
-        <Button
-          variant="outline"
-          className="w-full"
-          formAction={signInWithGoogle}
-        >
-          Login with Google
-        </Button>
-      </form>
     </div>
   );
 }

@@ -143,9 +143,7 @@ export async function signInWithGoogle() {
   });
 
   if (error) {
-    return {
-      error: error.message,
-    };
+    throw new Error(error.message);
   }
 
   if (data.url) {
@@ -165,14 +163,28 @@ export async function signInWithFacebook() {
   });
 
   if (error) {
-    return {
-      error: error.message,
-    };
+    throw new Error(error.message);
   }
 
   if (data.url) {
     redirect(data.url);
   }
+}
+
+export async function updatePassword(newPassword: string) {
+  const supabase = await createClient();
+
+  const { error } = await supabase.auth.updateUser({
+    password: newPassword,
+  });
+
+  if (error) {
+    return {
+      error: error.message,
+    };
+  }
+
+  redirect("/dashboard");
 }
 
 export async function signOut() {
