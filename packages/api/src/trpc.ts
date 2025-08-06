@@ -32,16 +32,22 @@ export const createTRPCContext = async (opts: {
 }) => {
   const supabase = opts.supabase;
 
-  const token = opts.headers.get("authorization");
+  // Get the current session from Supabase
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.getSession();
 
-  const user = token
-    ? await supabase.auth.getUser(token)
-    : await supabase.auth.getUser();
+  // Handle auth errors
+  if (error) {
+    console.error("Error retrieving session:", error);
+  }
 
-  const session = await supabase.auth.getSession();
+  // Extract user from session - session may be null if user is not authenticated
+  const user = session?.user ?? null;
 
   return {
-    user: user.data.user,
+    user,
     session,
     db,
   };

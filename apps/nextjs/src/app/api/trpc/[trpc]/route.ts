@@ -3,7 +3,7 @@ import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
 import { appRouter, createTRPCContext } from "@goat/api";
 
-import { createClient } from "~/supabase/client";
+import { createClient } from "~/supabase/server";
 
 /**
  * Configure basic CORS headers
@@ -25,7 +25,7 @@ export const OPTIONS = () => {
 };
 
 const handler = async (req: NextRequest) => {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const response = await fetchRequestHandler({
     endpoint: "/api/trpc",
