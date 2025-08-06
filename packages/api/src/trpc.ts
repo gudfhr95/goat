@@ -119,18 +119,13 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
  *
  * @see https://trpc.io/docs/procedures
  */
-const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.user?.id) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
-  return next({
-    ctx: {
-      // infers the `user` as non-nullable
-      user: ctx.user,
-    },
-  });
-});
-
 export const protectedProcedure = t.procedure
   .use(timingMiddleware)
-  .use(enforceUserIsAuthed);
+  .use(({ ctx, next }) => {
+    if (!ctx.user) {
+      throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+    return next({
+      ctx,
+    });
+  });
