@@ -61,6 +61,13 @@ catalogs:
     react-dom:
       specifier: 19.1.1
       version: 19.1.1
+  supabase:
+    '@supabase/ssr':
+      specifier: ^0.6.1
+      version: 0.6.1
+    '@supabase/supabase-js':
+      specifier: ^2.53.0
+      version: 2.53.0
   tailwindcss:
     '@tailwindcss/postcss':
       specifier: ^4.1.11
@@ -252,10 +259,10 @@ importers:
         specifier: workspace:*
         version: link:../../packages/validators
       '@supabase/ssr':
-        specifier: ^0.6.1
+        specifier: catalog:supabase
         version: 0.6.1(@supabase/supabase-js@2.53.0(bufferutil@4.0.9))
       '@supabase/supabase-js':
-        specifier: ^2.53.0
+        specifier: catalog:supabase
         version: 2.53.0(bufferutil@4.0.9)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.8
@@ -334,7 +341,7 @@ importers:
         specifier: workspace:*
         version: link:../validators
       '@supabase/supabase-js':
-        specifier: ^2.53.0
+        specifier: catalog:supabase
         version: 2.53.0(bufferutil@4.0.9)
       '@trpc/server':
         specifier: 'catalog:'

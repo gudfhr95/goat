@@ -21,7 +21,7 @@
   "dependencies": {
     "@goat/db": "workspace:*",
     "@goat/validators": "workspace:*",
-    "@supabase/supabase-js": "^2.53.0",
+    "@supabase/supabase-js": "catalog:supabase",
     "@trpc/server": "catalog:",
     "superjson": "2.2.2",
     "zod": "catalog:"
