@@ -183,8 +183,8 @@ importers:
         specifier: 0.80.2
         version: 0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)
       react-native-gesture-handler:
-        specifier: ~2.27.2
-        version: 2.27.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
+        specifier: ~2.28.0
+        version: 2.28.0(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
       react-native-reanimated:
         specifier: ~3.19.0
         version: 3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
@@ -299,7 +299,7 @@ importers:
         version: 11.4.4(@tanstack/react-query@5.84.1(react@19.1.1))(@trpc/client@11.4.4(@trpc/server@11.4.4(typescript@5.9.2))(typescript@5.9.2))(@trpc/server@11.4.4(typescript@5.9.2))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       next:
         specifier: ^15.4.5
-        version: 15.4.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 15.4.5(@babel/core@7.28.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
         specifier: catalog:react19
         version: 19.1.1
@@ -400,7 +400,7 @@ importers:
         version: 0.13.8(typescript@5.9.2)(zod@3.25.76)
       next:
         specifier: ^15.4.5
-        version: 15.4.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 15.4.5(@babel/core@7.28.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
         specifier: catalog:react19
         version: 19.1.1
@@ -6891,8 +6891,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-gesture-handler@2.27.2:
-    resolution: {integrity: sha512-+kNaY2m7uQu5+5ls8os6z92DTk9expsEAYsaPv30n08mrqX2r64G8iVGDwNWzZcId54+P7RlDnhyszTql0sQ0w==}
+  react-native-gesture-handler@2.28.0:
+    resolution: {integrity: sha512-0msfJ1vRxXKVgTgvL+1ZOoYw3/0z1R+Ked0+udoJhyplC2jbVKIJ8Z1bzWdpQRCV3QcQ87Op0zJVE5DhKK2A0A==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -14451,7 +14451,7 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  next@15.4.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  next@15.4.5(@babel/core@7.28.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       '@next/env': 15.4.5
       '@swc/helpers': 0.5.15
@@ -14459,7 +14459,7 @@ snapshots:
       postcss: 8.4.31
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
-      styled-jsx: 5.1.6(react@19.1.1)
+      styled-jsx: 5.1.6(@babel/core@7.28.0)(react@19.1.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.4.5
       '@next/swc-darwin-x64': 15.4.5
@@ -15048,7 +15048,7 @@ snapshots:
       react: 19.1.1
       react-native: 0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)
 
-  react-native-gesture-handler@2.27.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1):
+  react-native-gesture-handler@2.28.0(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1):
     dependencies:
       '@egjs/hammerjs': 2.0.17
       hoist-non-react-statics: 3.3.2
@@ -15766,10 +15766,12 @@ snapshots:
 
   structured-headers@0.4.1: {}
 
-  styled-jsx@5.1.6(react@19.1.1):
+  styled-jsx@5.1.6(@babel/core@7.28.0)(react@19.1.1):
     dependencies:
       client-only: 0.0.1
       react: 19.1.1
+    optionalDependencies:
+      '@babel/core': 7.28.0
 
   sucrase@3.35.0:
     dependencies:
