@@ -16,30 +16,36 @@ import { Input } from "@goat/ui/components/input";
 import { Label } from "@goat/ui/components/label";
 import { cn } from "@goat/ui/lib/utils";
 
-import { signIn, signInWithOAuth } from "~/app/auth/actions";
+import { signInWithOAuth, signUp } from "~/app/auth/actions";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? "Signing in..." : "Login"}
+      {pending ? "Creating account..." : "Sign up"}
     </Button>
   );
 }
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(formData: FormData) {
     setError(null);
-    const result = await signIn(formData);
+    setFieldErrors({});
+    const result = await signUp(formData);
 
     if (!result.success) {
-      setError(result.error.error);
+      if (result.error.field) {
+        setFieldErrors({ [result.error.field]: result.error.error });
+      } else {
+        setError(result.error.error);
+      }
     }
   }
 
@@ -47,9 +53,9 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
+          <CardTitle className="text-xl">Create an account</CardTitle>
           <CardDescription>
-            Login with your email or social account
+            Sign up with your email or social account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -72,7 +78,7 @@ export function LoginForm({
                     fill="currentColor"
                   />
                 </svg>
-                Login with Google
+                Sign up with Google
               </Button>
               <Button
                 variant="outline"
@@ -91,7 +97,7 @@ export function LoginForm({
                     fill="currentColor"
                   />
                 </svg>
-                Login with Facebook
+                Sign up with Facebook
               </Button>
             </div>
             <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -114,35 +120,67 @@ export function LoginForm({
                     type="email"
                     placeholder="m@example.com"
                     required
+                    aria-invalid={!!fieldErrors.email}
+                    aria-describedby={
+                      fieldErrors.email ? "email-error" : undefined
+                    }
                   />
+                  {fieldErrors.email && (
+                    <p id="email-error" className="text-destructive text-sm">
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div className="grid gap-3">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">Password</Label>
-                    <Link
-                      href="/auth/reset-password"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </Link>
-                  </div>
+                  <Label htmlFor="password">Password</Label>
                   <Input
                     id="password"
                     name="password"
                     type="password"
                     required
+                    placeholder="At least 8 characters"
+                    aria-invalid={!!fieldErrors.password}
+                    aria-describedby={
+                      fieldErrors.password ? "password-error" : undefined
+                    }
                   />
+                  {fieldErrors.password && (
+                    <p id="password-error" className="text-destructive text-sm">
+                      {fieldErrors.password}
+                    </p>
+                  )}
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    required
+                    placeholder="Confirm your password"
+                    aria-invalid={!!fieldErrors.confirmPassword}
+                    aria-describedby={
+                      fieldErrors.confirmPassword
+                        ? "confirmPassword-error"
+                        : undefined
+                    }
+                  />
+                  {fieldErrors.confirmPassword && (
+                    <p
+                      id="confirmPassword-error"
+                      className="text-destructive text-sm"
+                    >
+                      {fieldErrors.confirmPassword}
+                    </p>
+                  )}
                 </div>
                 <SubmitButton />
               </div>
             </form>
             <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/auth/signup"
-                className="underline underline-offset-4"
-              >
-                Sign up
+              Already have an account?{" "}
+              <Link href="/auth/login" className="underline underline-offset-4">
+                Sign in
               </Link>
             </div>
           </div>
