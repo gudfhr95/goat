@@ -154,7 +154,7 @@ importers:
         version: 7.1.5(expo@53.0.9(@babel/core@7.28.0)(@expo/metro-runtime@5.0.4(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)))(bufferutil@4.0.9)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
       expo-router:
         specifier: 5.0.7
-        version: 5.0.7(69a84bed4567af86c029d887cc200257)
+        version: 5.0.7(a93c5936d7af44c81a113814171c596a)
       expo-secure-store:
         specifier: 14.2.3
         version: 14.2.3(expo@53.0.9(@babel/core@7.28.0)(@expo/metro-runtime@5.0.4(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)))(bufferutil@4.0.9)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))
@@ -172,7 +172,7 @@ importers:
         version: 14.1.6(expo@53.0.9(@babel/core@7.28.0)(@expo/metro-runtime@5.0.4(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)))(bufferutil@4.0.9)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))
       nativewind:
         specifier: ~4.1.23
-        version: 4.1.23(react-native-reanimated@3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11)
+        version: 4.1.23(react-native-reanimated@3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11)
       react:
         specifier: catalog:react19
         version: 19.1.1
@@ -186,8 +186,8 @@ importers:
         specifier: ~2.28.0
         version: 2.28.0(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
       react-native-reanimated:
-        specifier: ~3.19.0
-        version: 3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
+        specifier: ~3.19.1
+        version: 3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
       react-native-safe-area-context:
         specifier: ~5.5.2
         version: 5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
@@ -6915,8 +6915,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-reanimated@3.19.0:
-    resolution: {integrity: sha512-FNfqLuPuVHsW9KcsZtnJqIPlMQvuySnSFJXgSt9fVDPqptbSUkiAF6MthUwd4Mxt05hCRcbV+T65CENgVS5iCg==}
+  react-native-reanimated@3.19.1:
+    resolution: {integrity: sha512-ILL0FSNzSVIg6WuawrsMBvNxk2yJFiTUcahimXDAeNiE/09eagVUlHhYWXAAmH0umvAOafBaGjO7YfBhUrf5ZQ==}
     peerDependencies:
       '@babel/core': ^7.0.0-0
       react: '*'
@@ -13118,7 +13118,7 @@ snapshots:
     dependencies:
       invariant: 2.2.4
 
-  expo-router@5.0.7(69a84bed4567af86c029d887cc200257):
+  expo-router@5.0.7(a93c5936d7af44c81a113814171c596a):
     dependencies:
       '@expo/metro-runtime': 5.0.4(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))
       '@expo/server': 0.6.3
@@ -13140,7 +13140,7 @@ snapshots:
       server-only: 0.0.1
       shallowequal: 1.1.0
     optionalDependencies:
-      react-native-reanimated: 3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
+      react-native-reanimated: 3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
     transitivePeerDependencies:
       - '@react-native-masked-view/masked-view'
       - '@types/react'
@@ -14426,11 +14426,11 @@ snapshots:
   napi-build-utils@2.0.0:
     optional: true
 
-  nativewind@4.1.23(react-native-reanimated@3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11):
+  nativewind@4.1.23(react-native-reanimated@3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11):
     dependencies:
       comment-json: 4.2.5
       debug: 4.4.1
-      react-native-css-interop: 0.1.22(react-native-reanimated@3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11)
+      react-native-css-interop: 0.1.22(react-native-reanimated@3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11)
       tailwindcss: 4.1.11
     transitivePeerDependencies:
       - react
@@ -15032,7 +15032,7 @@ snapshots:
 
   react-is@19.1.0: {}
 
-  react-native-css-interop@0.1.22(react-native-reanimated@3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11):
+  react-native-css-interop@0.1.22(react-native-reanimated@3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native-safe-area-context@5.5.2(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1))(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11):
     dependencies:
       '@babel/helper-module-imports': 7.27.1
       '@babel/traverse': 7.28.0
@@ -15041,7 +15041,7 @@ snapshots:
       lightningcss: 1.30.1
       react: 19.1.1
       react-native: 0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)
-      react-native-reanimated: 3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
+      react-native-reanimated: 3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1)
       semver: 7.7.2
       tailwindcss: 4.1.11
     optionalDependencies:
@@ -15072,7 +15072,7 @@ snapshots:
       react: 19.1.1
       react-native: 0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1)
 
-  react-native-reanimated@3.19.0(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1):
+  react-native-reanimated@3.19.1(@babel/core@7.28.0)(react-native@0.80.2(@babel/core@7.28.0)(@types/react@19.1.9)(bufferutil@4.0.9)(react@19.1.1))(react@19.1.1):
     dependencies:
       '@babel/core': 7.28.0
       '@babel/plugin-transform-arrow-functions': 7.27.1(@babel/core@7.28.0)
